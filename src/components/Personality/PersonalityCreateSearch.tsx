@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { useAppSelector } from "../../store/store";
 
 const PersonalityCreateSearch = ({ withSuggestions }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
     const router = useRouter();
 
@@ -34,7 +34,7 @@ const PersonalityCreateSearch = ({ withSuggestions }) => {
             type: "SET_SEARCH_NAME",
             searchName: name
         });
-        api.getPersonalities({ withSuggestions, personalities, searchName: name }, dispatch);
+        api.getPersonalities({ withSuggestions, personalities, searchName: name, i18n }, dispatch);
     }
 
     return (

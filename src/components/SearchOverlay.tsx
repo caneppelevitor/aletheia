@@ -45,7 +45,7 @@ const SearchOverlay = ({ overlay }) => {
         }
     );
     const dispatch = useDispatch();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const router = useRouter();
 
     const handleInputSearch = (name) => {
@@ -58,7 +58,8 @@ const SearchOverlay = ({ overlay }) => {
             personalities,
             page,
             pageSize,
-            searchName: name
+            searchName: name,
+            i18n
         }, dispatch);
     }
     return (
