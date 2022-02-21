@@ -2,8 +2,10 @@ import React from "react";
 import claimApi from "../../api/claim";
 import BaseList from "../List/BaseList";
 import ClaimReviewCard from "./ClaimReviewCard";
+import { useTranslation } from "next-i18next";
 
 const ClaimReviewList = ({ claimId, sentenceHash }) => {
+    const { i18n } = useTranslation()
     return (
         <BaseList
             style={{
@@ -12,7 +14,8 @@ const ClaimReviewList = ({ claimId, sentenceHash }) => {
             apiCall={claimApi.getClaimSentenceReviews}
             filter={{
                 claimId,
-                sentenceHash
+                sentenceHash,
+                i18n
             }}
             renderItem={claimReview => {
                 return claimReview && (
